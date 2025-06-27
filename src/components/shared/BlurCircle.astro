@@ -1,0 +1,25 @@
+---
+import type { TailwindColor } from "@/utils/types/tailwind";
+import { MAP_COLOR_VARIANT_TO_BG } from "@/utils/mapVariants";
+
+type Props = {
+  position: "bottom" | "top";
+  color: TailwindColor;
+};
+
+const { position, color } = Astro.props;
+---
+
+<div
+  class:list={{
+    [`fixed z-0 rounded-full ${MAP_COLOR_VARIANT_TO_BG[color]} opacity-70`]: true,
+    ["-left-[3vw] -top-[3vw]"]: position === "top",
+    ["-right-[3vw] -bottom-[3vw]"]: position === "bottom",
+  }}
+  style={{
+    width: "clamp(100px, 20vw, 300px)",
+    height: "clamp(100px, 20vw, 300px)",
+    filter: "blur(clamp(40px, 10vw, 150px))"
+  }}
+>
+</div>
