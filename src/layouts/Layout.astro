@@ -4,6 +4,7 @@ import BlurCircle from "@/components/shared/BlurCircle.astro";
 import theme from "@/data/theme";
 import SEOTags from "@/components/seo/SEOTags.astro";
 import type { HeadTags } from "@/utils/types/HeadTags";
+import AnalyticsWrapper from "@/components/AnalyticsWrapper.jsx";
 
 import "@/styles/tailwind.css";
 import "@/styles/post.css";
@@ -23,5 +24,6 @@ const headTags = Astro.props;
     <BlurCircle position="top" color={theme.colors.blur.top} />
     <BlurCircle position="bottom" color={theme.colors.blur.bottom} />
     <slot />
+    <AnalyticsWrapper client:load />
   </body>
 </html>
